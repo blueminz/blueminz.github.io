@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Northline — Learn the Craft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <div class="nav-wrap">
+    <div class="logo"><span class="logo-mark">TS</span> Ts Trading Club</div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#course">Course</a></li>
+        <li><a href="#support">Support</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <span class="status-pill" id="status-pill">Not enrolled</span>
+      <button class="btn btn-primary" id="nav-buy-btn" onclick="openPayment()">Buy course</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div>
+      <span class="eyebrow">Cohort-based · Lifetime access</span>
+      <h1>Learn product design the way working designers actually work.</h1>
+      <p>A structured, hands-on course with real projects, direct feedback, and a private community — built for people who want to ship, not just watch.</p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" onclick="openPayment()">Buy course — $149</button>
+        <button class="btn btn-ghost btn-lg" onclick="document.getElementById('course').scrollIntoView()">See curriculum</button>
+      </div>
+      <div class="price-tag">One-time payment · <b>Instant access</b> · No subscription</div>
+    </div>
+    <div class="module-preview">
+      <h4>What's inside</h4>
+      <div class="mp-row"><span class="mp-num">01</span> Foundations of visual hierarchy <span class="mp-lock">🔒</span></div>
+      <div class="mp-row"><span class="mp-num">02</span> Designing real interfaces <span class="mp-lock">🔒</span></div>
+      <div class="mp-row"><span class="mp-num">03</span> Systems, tokens & handoff <span class="mp-lock">🔒</span></div>
+      <div class="mp-row"><span class="mp-num">04</span> Portfolio & case studies <span class="mp-lock">🔒</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="course">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Course content</span>
+      <h2>Everything unlocks the moment you enroll</h2>
+      <p>Four modules, lifetime updates, and downloadable project files. Content stays locked until purchase is confirmed.</p>
+    </div>
+
+    <div class="course-shell" id="course-shell">
+      <div class="locked-banner" id="locked-banner">
+        <div class="locked-banner-text">
+          <h3 id="banner-title">This course is locked</h3>
+          <p id="banner-sub">Enrolled students get full access to every module, forever.</p>
+        </div>
+        <button class="btn btn-primary" id="banner-btn" onclick="openPayment()">Unlock for $149</button>
+      </div>
+
+      <div class="module-list">
+        <div class="module-row">
+          <div class="module-icon">01</div>
+          <div class="module-info"><h4>Foundations of visual hierarchy</h4><span>6 lessons · 48 min</span></div>
+          <div class="module-play">▶</div>
+        </div>
+        <div class="module-row">
+          <div class="module-icon">02</div>
+          <div class="module-info"><h4>Designing real interfaces</h4><span>9 lessons · 1h 20m</span></div>
+          <div class="module-play">▶</div>
+        </div>
+        <div class="module-row">
+          <div class="module-icon">03</div>
+          <div class="module-info"><h4>Systems, tokens & handoff</h4><span>7 lessons · 55 min</span></div>
+          <div class="module-play">▶</div>
+        </div>
+        <div class="module-row">
+          <div class="module-icon">04</div>
+          <div class="module-info"><h4>Portfolio & case studies</h4><span>5 lessons · 40 min</span></div>
+          <div class="module-play">▶</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="support">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="kicker">Support</span>
+      <h2>Questions before you enroll?</h2>
+      <p>Check the common questions below, or send the team a message directly.</p>
+    </div>
+    <div class="support-grid">
+      <div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do I get lifetime access? <span class="chev">▾</span></div>
+          <div class="faq-a">Yes. One payment gives you permanent access to all four modules, including any future updates.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Is there a refund policy? <span class="chev">▾</span></div>
+          <div class="faq-a">You're covered by a 14-day refund window — if it's not a fit, message support and you'll be refunded in full.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Can I access this on mobile? <span class="chev">▾</span></div>
+          <div class="faq-a">Yes, the course works on any device once you're logged into your account.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">Do you offer team or bulk pricing? <span class="chev">▾</span></div>
+          <div class="faq-a">Yes — message support with your team size and we'll send over a quote.</div>
+        </div>
+      </div>
+
+      <div class="support-form">
+        <h3>Message support</h3>
+        <p>Typical reply time is under 4 hours on weekdays.</p>
+        <form id="support-form" onsubmit="submitSupport(event)">
+          <div class="field"><label for="s-name">Name</label><input id="s-name" required placeholder="Your name"></div>
+          <div class="field"><label for="s-email">Email</label><input id="s-email" type="email" required placeholder="you@email.com"></div>
+          <div class="field"><label for="s-msg">Message</label><textarea id="s-msg" required placeholder="How can we help?"></textarea></div>
+          <button class="btn btn-primary" type="submit" style="width:100%;">Send message</button>
+        </form>
+        <div class="form-note" id="support-note"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Northline. All rights reserved. This is a demo front end — payment is simulated.
+</footer>
+
+<!-- CHAT WIDGET -->
+<button id="chat-toggle" onclick="toggleChat()">💬</button>
+<div id="chat-panel">
+  <div class="chat-head">
+    <div class="dot"></div>
+    <div class="chat-head-text"><b>Northline Support</b><span>Usually replies in minutes</span></div>
+    <button class="chat-close" onclick="toggleChat()">✕</button>
+  </div>
+  <div class="chat-body" id="chat-body">
+    <div class="msg bot">Hi! 👋 I'm here to help with anything about the course, your access, or payments. What do you need?</div>
+  </div>
+  <div class="chat-input">
+    <input id="chat-input" placeholder="Type a message..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()">Send</button>
+  </div>
+</div>
+
+<!-- PAYMENT MODAL -->
+<div id="overlay">
+  <div class="modal">
+    <button class="modal-close" onclick="closePayment()">✕</button>
+
+    <div class="pay-form" id="pay-form">
+      <h3>Unlock the course</h3>
+      <p class="sub">One-time payment. Instant access after checkout.</p>
+      <div class="price-row"><span>Full course access</span><b>$149.00</b></div>
+      <form onsubmit="submitPayment(event)">
+        <div class="field"><label>Card number</label><input required placeholder="4242 4242 4242 4242" maxlength="19"></div>
+        <div class="modal-row2">
+          <div class="field"><label>Expiry</label><input required placeholder="MM/YY" maxlength="5"></div>
+          <div class="field"><label>CVC</label><input required placeholder="123" maxlength="4"></div>
+        </div>
+        <div class="field"><label>Email for receipt</label><input type="email" required placeholder="you@email.com"></div>
+        <button class="btn btn-primary" type="submit" style="width:100%; padding:13px;">Pay $149.00</button>
+      </form>
+    </div>
+
+    <div class="pay-success" id="pay-success">
+      <div class="check">✓</div>
+      <h3 style="text-align:center;">You're enrolled!</h3>
+      <p class="sub" style="text-align:center;">Payment confirmed. The full course is now unlocked below.</p>
+      <button class="btn btn-primary" style="width:100%; padding:13px;" onclick="closePayment()">Start learning</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---- In-memory state (no localStorage per artifact constraints) ----
+  let hasPurchased = false;
+
+  function openPayment(){
+    document.getElementById('overlay').classList.add('open');
+    if(hasPurchased){
+      document.getElementById('pay-form').classList.add('hide');
+      document.getElementById('pay-success').classList.add('show');
+    }
+  }
+  function closePayment(){
+    document.getElementById('overlay').classList.remove('open');
+  }
+  document.getElementById('overlay').addEventListener('click', function(e){
+    if(e.target === this) closePayment();
+  });
+
+  function submitPayment(e){
+    e.preventDefault();
+    hasPurchased = true;
+    document.getElementById('pay-form').classList.add('hide');
+    document.getElementById('pay-success').classList.add('show');
+    unlockCourse();
+  }
+
+  function unlockCourse(){
+    document.getElementById('course-shell').classList.add('unlocked');
+    document.getElementById('locked-banner').classList.add('unlocked');
+    document.getElementById('banner-title').textContent = "You're enrolled — full access unlocked";
+    document.getElementById('banner-sub').textContent = "Jump into any module below. Lifetime access, including future updates.";
+    document.getElementById('banner-btn').style.display = 'none';
+    document.getElementById('status-pill').textContent = 'Enrolled ✓';
+    document.getElementById('status-pill').classList.add('owned');
+    document.getElementById('nav-buy-btn').textContent = 'Go to course';
+    document.getElementById('nav-buy-btn').onclick = function(){ document.getElementById('course').scrollIntoView(); };
+  }
+
+  // ---- FAQ ----
+  function toggleFaq(el){
+    el.parentElement.classList.toggle('open');
+  }
+
+  // ---- Support form ----
+  function submitSupport(e){
+    e.preventDefault();
+    document.getElementById('support-note').textContent = "Thanks — your message has been sent. We'll reply by email shortly.";
+    document.getElementById('support-form').reset();
+  }
+
+  // ---- Chat widget ----
+  function toggleChat(){
+    document.getElementById('chat-panel').classList.toggle('open');
+  }
+  const botReplies = [
+    "Good question — you can find a full breakdown of the modules in the Course section above.",
+    "Once you complete checkout, access unlocks instantly, no waiting required.",
+    "You're covered by a 14-day refund window if the course isn't a fit.",
+    "I've noted that — the support team will follow up by email if needed.",
+    "You can reach a real person any time by filling out the form in the Support section."
+  ];
+  function sendChat(){
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if(!text) return;
+    const body = document.getElementById('chat-body');
+    const userMsg = document.createElement('div');
+    userMsg.className = 'msg user';
+    userMsg.textContent = text;
+    body.appendChild(userMsg);
+    input.value = '';
+    body.scrollTop = body.scrollHeight;
+    setTimeout(function(){
+      const reply = document.createElement('div');
+      reply.className = 'msg bot';
+      reply.textContent = botReplies[Math.floor(Math.random()*botReplies.length)];
+      body.appendChild(reply);
+      body.scrollTop = body.scrollHeight;
+    }, 600);
+  }
+</script>
+
+</body>
+</html>
